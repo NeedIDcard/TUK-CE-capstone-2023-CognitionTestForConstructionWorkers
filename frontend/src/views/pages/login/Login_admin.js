@@ -44,7 +44,7 @@ const Login = () => {
       credit = 'super'
     } else {
       link = 'https://oiwaejofenwiaovjsoifaoiwnfiofweafj.site:8080/admin/login'
-      credit = 'adimn'
+      credit = 'admin'
     }
     e.preventDefault()
     const data = {

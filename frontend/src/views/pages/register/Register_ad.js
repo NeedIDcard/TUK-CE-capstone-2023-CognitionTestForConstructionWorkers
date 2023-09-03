@@ -27,6 +27,7 @@ const Register_ad = () => {
   const [loading, setLoading] = useState(false)
   const [role, setRole] = useState('')
   const [Position, setPosition] = useState('')
+  const [Repeatpw, setRepeatpw] = useState('')
 
   const UserFunc = (e) => {
     e.preventDefault()
@@ -36,27 +37,31 @@ const Register_ad = () => {
       username: ID,
       password: Password,
       fieldId: Field,
-      position: Position,
+      //position: Position,
       //role: role,
     }
     const Subjects = `name=${Name}&username=${ID}&password=${Password}&age=${Age}`
-    axios.defaults.headers.common['Authorization'] = `${token}`
-    axios
-      .post('https://oiwaejofenwiaovjsoifaoiwnfiofweafj.site:8080/super/admin', Admin, {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Access-Control-Allow-Origin': 'https://oiwaejofenwiaovjsoifaoiwnfiofweafj.site:8080',
-        },
-        withCredentials: true,
-        baseURL: 'https://oiwaejofenwiaovjsoifaoiwnfiofweafj.site:8080',
-      })
-      .then((response) => {
-        console.log(response.data)
-        window.location.href = '#/admins'
-      })
-      .catch((error) => {
-        alert(error.message)
-      })
+    if (Password === Repeatpw) {
+      axios.defaults.headers.common['Authorization'] = `${token}`
+      axios
+        .post('https://oiwaejofenwiaovjsoifaoiwnfiofweafj.site:8080/super/admin', Admin, {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Access-Control-Allow-Origin': 'https://oiwaejofenwiaovjsoifaoiwnfiofweafj.site:8080',
+          },
+          withCredentials: true,
+          baseURL: 'https://oiwaejofenwiaovjsoifaoiwnfiofweafj.site:8080',
+        })
+        .then((response) => {
+          console.log(response.data)
+          window.location.href = '#/admins'
+        })
+        .catch((error) => {
+          alert(error.message)
+        })
+    } else {
+      alert('패스워드가 다릅니다.')
+    }
   }
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
@@ -66,8 +71,8 @@ const Register_ad = () => {
             <CCard className="mx-4">
               <CCardBody className="p-4">
                 <CForm onSubmit={UserFunc}>
-                  <h2>Subject Create</h2>
-                  <p className="text-medium-emphasis">Create subject account</p>
+                  <h2>Admin Create</h2>
+                  <p className="text-medium-emphasis">Create Admin account</p>
                   <CInputGroup className="mb-3">
                     <CInputGroupText>
                       <CIcon icon={cilUser} />
@@ -110,6 +115,8 @@ const Register_ad = () => {
                       type="password"
                       placeholder="Repeat password"
                       autoComplete="new-password"
+                      value={Repeatpw}
+                      onChange={(e) => setRepeatpw(e.target.value)}
                     />
                   </CInputGroup>
                   <CInputGroup className="mb-3">
@@ -121,28 +128,6 @@ const Register_ad = () => {
                       autoComplete="Field"
                       value={Field}
                       onChange={(e) => setField(e.target.value)}
-                    />
-                  </CInputGroup>
-                  <CInputGroup className="mb-3">
-                    <CInputGroupText>
-                      <CIcon icon={cilUser} />
-                    </CInputGroupText>
-                    <CFormInput
-                      placeholder="Role"
-                      autoComplete="Role"
-                      value={role}
-                      onChange={(e) => setRole(e.target.value)}
-                    />
-                  </CInputGroup>
-                  <CInputGroup className="mb-3">
-                    <CInputGroupText>
-                      <CIcon icon={cilUser} />
-                    </CInputGroupText>
-                    <CFormInput
-                      placeholder="Position"
-                      autoComplete="Position"
-                      value={Position}
-                      onChange={(e) => setPosition(e.target.value)}
                     />
                   </CInputGroup>
                   <div className="d-grid">

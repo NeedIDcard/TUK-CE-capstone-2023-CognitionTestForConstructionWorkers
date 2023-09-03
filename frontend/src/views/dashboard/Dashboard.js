@@ -61,6 +61,12 @@ const Dashboard = () => {
     date = []
   axios.defaults.headers.common['Authorization'] = `${token}`
   const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
+  const credit = sessionStorage.getItem('credit')
+  if (credit !== 'admin') {
+    window.alert('admin 계정으로 접속해야 합니다.')
+    sessionStorage.clear()
+    window.location.href = '#/login_sub'
+  }
   const [npchartData, setNpchartDate] = useState({
     labels: [],
     datasets: [
