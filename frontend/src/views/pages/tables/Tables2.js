@@ -25,6 +25,9 @@ const Tables2 = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const [itemsPerPage] = useState(10)
   const token = sessionStorage.getItem('token')
+  const today = new Date()
+  const today2 = [today.getFullYear(), today.getMonth() + 1, today.getDate()]
+  console.log(today2)
   axios.defaults.headers.common['Authorization'] = `${token}`
   const subjectname = sessionStorage.getItem('subjectname')
   if (subjectname) {
@@ -34,7 +37,12 @@ const Tables2 = () => {
   } else {
     console.log('subjectName not found in session')
   }
-
+  const credit = sessionStorage.getItem('credit')
+  if (credit !== 'admin') {
+    window.alert('admin 계정으로 접속해야 합니다.')
+    sessionStorage.clear()
+    window.location.href = '#/login_sub'
+  }
   useEffect(() => {
     axios
       .get('/dummy.json')
@@ -108,13 +116,18 @@ const Tables2 = () => {
                       key={item.num}
                       style={{
                         backgroundColor:
-                          item.risk === 'HIGH_RISK'
-                            ? 'red'
-                            : item.risk === 'LOW_RISK'
-                            ? 'lightyellow'
-                            : item.risk === 'MIDDLE_RISK'
-                            ? 'yellow'
-                            : 'white',
+                          item.lastTestedDate !== null &&
+                          item.lastTestedDate[1] === today2[1] &&
+                          item.lastTestedDate[1] === today2[1] &&
+                          item.lastTestedDate[2] === today2[2]
+                            ? item.risk === 'HIGH_RISK'
+                              ? 'red'
+                              : item.risk === 'LOW_RISK'
+                              ? 'lightyellow'
+                              : item.risk === 'MIDDLE_RISK'
+                              ? 'yellow'
+                              : 'white'
+                            : 'grey',
                       }}
                     >
                       <CTableDataCell>{indexOfFirstItem + index + 1}</CTableDataCell>

@@ -98,7 +98,7 @@ const Tables_Site = () => {
         baseURL: 'https://oiwaejofenwiaovjsoifaoiwnfiofweafj.site:8080',
       })
       .then((response) => {
-        console.log(response)
+        window.location.reload()
       })
       .catch((error) => {
         alert(error.message)

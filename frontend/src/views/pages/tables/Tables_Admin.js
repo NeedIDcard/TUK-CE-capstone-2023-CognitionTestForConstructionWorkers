@@ -93,7 +93,7 @@ const Tables_Admin = () => {
         baseURL: 'https://oiwaejofenwiaovjsoifaoiwnfiofweafj.site:8080',
       })
       .then((response) => {
-        console.log(response)
+        window.location.reload()
       })
       .catch((error) => {
         alert(error.message)
@@ -137,9 +137,7 @@ const Tables_Admin = () => {
                     >
                       <CTableDataCell>{indexOfFirstItem + index + 1}</CTableDataCell>
                       <CTableDataCell>
-                        <a href="#/details" onClick={() => saveSubjectName(item)}>
-                          {item.name}
-                        </a>
+                        <a>{item.name}</a>
                       </CTableDataCell>
                       <CTableDataCell>{item.position}</CTableDataCell>
                       <CTableDataCell>

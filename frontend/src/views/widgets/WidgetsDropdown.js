@@ -91,7 +91,7 @@ const WidgetsDropdown = () => {
       <CCol sm={6} lg={3}>
         <CWidgetStatsA
           className="mb-4"
-          color="info"
+          color="dark"
           value={
             <>
               {`${absence}`}
