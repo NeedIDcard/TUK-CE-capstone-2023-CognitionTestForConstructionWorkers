@@ -385,7 +385,7 @@ const Details_sub = () => {
           </CCol>
           <CCol xs={6}>
             <CCard className="mb-4">
-              <CCardHeader>test1</CCardHeader>
+              <CCardHeader>maze test</CCardHeader>
               <CCardBody>
                 <CChartLine
                   data={
@@ -417,7 +417,7 @@ const Details_sub = () => {
           </CCol>
           <CCol xs={6}>
             <CCard className="mb-4">
-              <CCardHeader>test2</CCardHeader>
+              <CCardHeader>decisionmaking test</CCardHeader>
               <CCardBody>
                 <CChartLine data={chart2Data} />
               </CCardBody>
@@ -425,7 +425,7 @@ const Details_sub = () => {
           </CCol>
           <CCol xs={6}>
             <CCard className="mb-4">
-              <CCardHeader>test3</CCardHeader>
+              <CCardHeader>conveyorbelt test</CCardHeader>
               <CCardBody>
                 <CChartLine data={chart3Data} />
               </CCardBody>
@@ -433,7 +433,7 @@ const Details_sub = () => {
           </CCol>
           <CCol xs={6}>
             <CCard className="mb-4">
-              <CCardHeader>test4</CCardHeader>
+              <CCardHeader>twohand test</CCardHeader>
               <CCardBody>
                 <CChartLine data={chart4Data} />
               </CCardBody>

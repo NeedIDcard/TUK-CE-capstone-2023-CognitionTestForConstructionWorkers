@@ -377,7 +377,7 @@ const Charts = () => {
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <small>
               <p>
-                {`age : ${subject_information.age}`} {`carrer : ${subject_information.career}`}{' '}
+                {`age : ${subject_information.age}`} {}
                 {`Phone : ${subject_information.phoneNum}`} {`Gender : ${subject_information.sex}`}
               </p>
             </small>
@@ -388,7 +388,7 @@ const Charts = () => {
       </CCol>
       <CCol xs={6}>
         <CCard className="mb-4">
-          <CCardHeader>test1</CCardHeader>
+          <CCardHeader>maze test</CCardHeader>
           <CCardBody>
             <CChartLine
               data={
@@ -420,7 +420,7 @@ const Charts = () => {
       </CCol>
       <CCol xs={6}>
         <CCard className="mb-4">
-          <CCardHeader>test2</CCardHeader>
+          <CCardHeader>decisionmaking test</CCardHeader>
           <CCardBody>
             <CChartLine data={chart2Data} />
           </CCardBody>
@@ -428,7 +428,7 @@ const Charts = () => {
       </CCol>
       <CCol xs={6}>
         <CCard className="mb-4">
-          <CCardHeader>test3</CCardHeader>
+          <CCardHeader>conveyorbelt test</CCardHeader>
           <CCardBody>
             <CChartLine data={chart3Data} />
           </CCardBody>
@@ -436,7 +436,7 @@ const Charts = () => {
       </CCol>
       <CCol xs={6}>
         <CCard className="mb-4">
-          <CCardHeader>test4</CCardHeader>
+          <CCardHeader>twohand test</CCardHeader>
           <CCardBody>
             <CChartLine data={chart4Data} />
           </CCardBody>

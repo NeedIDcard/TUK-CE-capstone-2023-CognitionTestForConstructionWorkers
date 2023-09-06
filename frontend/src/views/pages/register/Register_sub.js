@@ -12,6 +12,7 @@ import {
   CInputGroup,
   CInputGroupText,
   CRow,
+  CFormSelect,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
@@ -27,12 +28,12 @@ const Register = () => {
   const [Age, setAge] = useState('')
   const [Phone, setPhone] = useState('')
   const [loading, setLoading] = useState(false)
-  const [msg, setMsg] = useState('')
+  const [Gender, setGender] = useState(null)
   const [Carrer, setCarrer] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
   useEffect(() => {
     /*...*/
-  }, [msg])
+  }, [])
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
@@ -45,6 +46,8 @@ const Register = () => {
         password: Password,
         age: Age,
         career: Carrer,
+        phoneNum: Phone,
+        sex: Gender,
       },
     ]
     axios.defaults.headers.common['Authorization'] = `${token}`
@@ -152,12 +155,17 @@ const Register = () => {
                     <CInputGroupText>
                       <CIcon icon={cilUser} />
                     </CInputGroupText>
-                    <CFormInput
-                      placeholder="Carrer"
-                      autoComplete="Carrer"
-                      value={Carrer}
-                      onChange={(e) => setCarrer(e.target.value)}
-                    />
+                    <CFormSelect
+                      id="select gender"
+                      value={Gender}
+                      onChange={(e) => setGender(e.target.value)}
+                    >
+                      <option disabled selected hidden>
+                        gender
+                      </option>
+                      <option value={0}>male</option>
+                      <option value={1}>female</option>
+                    </CFormSelect>
                   </CInputGroup>
                   <div className="d-grid">
                     <CButton type="submit" color="success">
